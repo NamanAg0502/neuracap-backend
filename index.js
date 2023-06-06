@@ -13,7 +13,16 @@ const PORT = process.env.PORT || 4000;
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+  cors({
+    corsOptions: {
+      origin: [
+        'http://localhost:3000',
+        'https://neuracap-frontend.vercel.app/',
+      ],
+    },
+  })
+);
 app.use(cookieParser());
 
 // Connect to MongoDB
